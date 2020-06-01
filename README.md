@@ -23,3 +23,7 @@ Questions we hope to answer with the data:
 + Are there any geographic regions with higher pump failure rates?
 + Which features are most important in determining a pump needs repair?
 + Are pumps funded by certain funding organizations, installers, or management groups more likely to fail?
+
+
+### Notes for Segment 1
++ Notebook named **machinelearning_supervised_improvedcleaning.ipynb** is the most up to the base code for cleaning and machine learning. This notebook also demonstrates the connection string to our SQLite database.
