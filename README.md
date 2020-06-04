@@ -6,6 +6,8 @@ Machine learning model to predict one of three classes for water pumps in Tanzan
 + Kuntal Deshpande
 + Matt Glibota
 + Ken Welsh
++ Nabanita Gupta
++ Allen Shih
 
 ### Communication Protocol
 + Team meetings on Monday and Wednesday during scheduled class hours (Zoom)
