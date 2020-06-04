@@ -29,3 +29,16 @@ Questions we hope to answer with the data:
 
 ### Notes for Segment 1
 + Notebook named **machinelearning_supervised_improvedcleaning.ipynb** is the most up to the base code for cleaning and machine learning. This notebook also demonstrates the connection string to our SQLite database.
+
+### Notes for Segment 2
+**Presentation**
++ Water.org (The Power of Water - context and humanity touch), JMP WHO organization visualization, news articles
++ Starting Google Slides for [Storyboard](https://docs.google.com/presentation/d/1Tzutmtu-93NaoocKtD8GsclPh2si5CNKLqiVq4YbVKA/edit?usp=sharing)
+
+**Machine Learning**
++ Different techniques for filling NAs and replacing zeroes
++ Different levels for bucketing
++ Merge supplemental population/GPS data into the dataset
++ Try oversampling and imbalanced algorithms
++ More tuning of a deep learning model
++ Need to fix column datatypes for the SQLlite
