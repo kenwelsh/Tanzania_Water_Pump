@@ -6,6 +6,8 @@ Machine learning model to predict one of three classes for water pumps in Tanzan
 + Kuntal Deshpande
 + Matt Glibota
 + Ken Welsh
++ Nabanita Gupta
++ Allen Shih
 
 ### Communication Protocol
 + Team meetings on Monday and Wednesday during scheduled class hours (Zoom)
@@ -40,5 +42,3 @@ Questions we hope to answer with the data:
 + Try oversampling and imbalanced algorithms
 + More tuning of a deep learning model
 + Need to fix column datatypes for the SQLlite
-
-
