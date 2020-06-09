@@ -11,7 +11,7 @@ summarize_region <- pump_data %>% group_by(region) %>% summarize(
   NonFunctional=sum(status_group_non.functional), 
   Functional_Percentage=sum(status_group_functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
   Needs_Repair_Percentage=sum(status_group_functional.needs.repair)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
-  NonFunctional_Percentage=sum(status_group_non.functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional))) 
+  NonFunctional_Percentage=sum(status_group_non.functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)))
 
 
 # create Basin summary table
@@ -122,5 +122,77 @@ summarize_waterpoint_type <- pump_data %>% group_by(waterpoint_type) %>% summari
   Functional_Percentage=sum(status_group_functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
   Needs_Repair_Percentage=sum(status_group_functional.needs.repair)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
   NonFunctional_Percentage=sum(status_group_non.functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional))) 
+
+# Region chi-squared test
+tbl <- table(pump_data$region,pump_data$status_group) #generate contingency table
+chisq.test(tbl) #compare categorical distributions
+# significant difference in pump functional distribution between regions: p-value < 2.2e-16
+
+
+# Basin chi-squared test
+tbl <- table(pump_data$basin,pump_data$status_group) #generate contingency table
+chisq.test(tbl) #compare categorical distributions
+# significant difference in pump functional distribution between basins: p-value < 2.2e-16
+
+
+# Scheme Management chi-squared test
+tbl <- table(pump_data$scheme_management,pump_data$status_group) #generate contingency table
+chisq.test(tbl) #compare categorical distributions
+# significant difference in pump functional distribution between scheme management: p-value < 2.2e-16
+
+
+# Permit chi-squared test
+tbl <- table(pump_data$permit,pump_data$status_group) #generate contingency table
+chisq.test(tbl) #compare categorical distributions
+# significant difference in pump functional distribution between scheme management: p-value = 1.542e-15
+
+
+# Extration Type chi-squared test
+tbl <- table(pump_data$extraction_type,pump_data$status_group) #generate contingency table
+chisq.test(tbl) #compare categorical distributions
+# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
+
+
+# Management chi-squared test
+tbl <- table(pump_data$management,pump_data$status_group) #generate contingency table
+chisq.test(tbl) #compare categorical distributions
+# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
+
+
+# Payment chi-squared test
+tbl <- table(pump_data$payment,pump_data$status_group) #generate contingency table
+chisq.test(tbl) #compare categorical distributions
+# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
+
+
+# Water Quality chi-squared test
+tbl <- table(pump_data$water_quality,pump_data$status_group) #generate contingency table
+chisq.test(tbl) #compare categorical distributions
+# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
+
+
+# Quantity chi-squared test
+tbl <- table(pump_data$quantity,pump_data$status_group) #generate contingency table
+chisq.test(tbl) #compare categorical distributions
+# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
+
+
+# Source chi-squared test
+tbl <- table(pump_data$source,pump_data$status_group) #generate contingency table
+chisq.test(tbl) #compare categorical distributions
+# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
+
+
+# Source Class chi-squared test
+tbl <- table(pump_data$source_class,pump_data$status_group) #generate contingency table
+chisq.test(tbl) #compare categorical distributions
+# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
+
+
+# Waterpoint Type chi-squared test
+tbl <- table(pump_data$waterpoint_type,pump_data$status_group) #generate contingency table
+chisq.test(tbl) #compare categorical distributions
+# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
+
 
 
