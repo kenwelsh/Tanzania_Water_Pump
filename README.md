@@ -41,4 +41,4 @@ Questions we hope to answer with the data:
 + Merge supplemental population/GPS data into the dataset
 + Try oversampling and imbalanced algorithms
 + More tuning of a deep learning model
-+ Need to fix column datatypes for the SQLlite
++ Need to fix column data types for the SQLite
