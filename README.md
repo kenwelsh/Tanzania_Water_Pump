@@ -33,7 +33,7 @@ Questions we hope to answer with the data:
 ### Notes for Segment 2
 **Presentation**
 + Water.org (The Power of Water - context and humanity touch), JMP WHO organization visualization, news articles
-+ Starting Google Slides for [Storyboard](https://docs.google.com/presentation/d/1Tzutmtu-93NaoocKtD8GsclPh2si5CNKLqiVq4YbVKA/edit?usp=sharing)
++ Starting Google Slides for [Storyboard](https://docs.google.com/presentation/d/1Hb3z-RGZLof6P-a4ixLqQX8gBp3ay2EoK5fEBRXFfFk/edit#slide=id.g89a106cc94_0_230)
 
 **Machine Learning**
 + Different techniques for filling NAs and replacing zeroes
