@@ -36,7 +36,8 @@ R is used in the further analysis part.
 We have used SQLite Database for data storage. Tableau Dashboard along with Google slide is used to display and presentation purposes.
 
 ## Machine Learning
-Python is used for machine learning. At the initial stage the focus is on Random Forest.
+Python and Jupyter Notebook are used for ETL and machine learning. The active workbook is **machinelearning_supervised_segment2.ipynb**.
+
 ### Description of preliminary data preprocessing and Description of preliminary feature engineering and preliminary feature selection, including the decision-making process
 There was a multitude of data cleaning and transforming prior to compiling and fitting the model.
 
