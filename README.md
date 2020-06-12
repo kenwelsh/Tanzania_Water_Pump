@@ -26,6 +26,21 @@ Questions we hope to answer with the data:
 + Which features are most important in determining a pump needs repair?
 + Are pumps funded by certain funding organizations, installers, or management groups more likely to fail?
 
+#### Technologies we plan to use
+
+## Data Cleaning and Analysis
+Python is used for initial data cleaning and analysis. Jupyter notebook is used to compose and run the codes. 
+R is used in the further analysis part. 
+
+## Database Storage
+We have used SQLite Database for data storage. Tableau Dashboard along with Google slide is used to display and presentation purposes.
+
+## Machine Learning
+Python is used for machine learning. At the initial stage the focus is on Random Forest.
+
+## Dashboard
+We are using Tableau for dashboarding. Also using Storyboard for Google slides.
+
 
 ### Notes for Segment 1
 + Notebook named **machinelearning_supervised_improvedcleaning.ipynb** is the most up to the base code for cleaning and machine learning. This notebook also demonstrates the connection string to our SQLite database.
