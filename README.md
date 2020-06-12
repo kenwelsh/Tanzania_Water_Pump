@@ -37,6 +37,35 @@ We have used SQLite Database for data storage. Tableau Dashboard along with Goog
 
 ## Machine Learning
 Python is used for machine learning. At the initial stage the focus is on Random Forest.
+### Description of preliminary data preprocessing and Description of preliminary feature engineering and preliminary feature selection, including the decision-making process
+There was a multitude of data cleaning and transforming prior to compiling and fitting the model.
+
+**Dataset supplemented with information about the 3 closest cities**. We created an algorithm that, for each water point row, will calculate the GPS distance to each of the 280 cities in Tanzania, and return the distance and population of the 3 closest cities. This alorithm is located in the **supplemental_population.ipynb** workbook. We included this supplementeal data because we wanted to understand the influence of people relying on the waterpoint had on its status.
+
+**Filling missing data with appropriate data type and value**. There were multiple columns and rows that had missing values. Two of these columns (Permit and Public Meeting) were Boolean in nature. Therefore the missing value was populated as False. IF the data was missing it would likely not be True. There are int/float columns and the missing values were filled with "0". For all other data types (mainly object), the missing values were filled with "Other". We are performing bucketting later in cleaning, therefore "Other" is a good value to use because it will not be unique just to missing data.
+
+**Find unique values and perform bucketting on categorical information**. We ran unique value counts for each of the "object" columns to determine which features would need to be bucketted. We identified 6 features that would need to be bucketted: funder, installer, subvillage, lga, ward and scheme_name. These had around 2000 unique values. The other features had less than 21 unique values, which we determined would all be valuable in a dataset of over 59,000 rows. We set the threshold to 100 occurences of a unique value, otherwise it was re-labelled "Other". This transformation reduced the unique values in around 100 from 2000.
+
+**Drop invaluable or duplicate features**. There were many parent/child grouping (i.e. group then type) which had 1 to 1 relationships. In otherwords, the group value only had one type value, therefore the group value was redundant. We removed payment type, quality, quantitity, source, and waterpoint type groups. We also removed the waterpoint name and date recorded as this are unique values to every entry and do not provide prediction value. Lastly, dropped the geo_loc feature which was a intermediate feature during the calculation of closest cities
+
+**Perform One Hot Encoding on categorical variables**. Once we had the features bucketted, which performed OneHotEncoded to create numeric values compatible with the machine learning model. The 21 categorical features were transformed to 546 features.
+
+**Data filtering for illogical entries**. During preliminary model runs, Latitude and longitude were determined to be important features. Unfortunately there were nearly 2000 rows where longitude equaled 0, which is a longitude impossible for the geography of Tanzania. Therefore we made the decision to drop these rows.
+
+### Description of how data was split into training and testing sets
+The data was split using sklearn train_test_split with no additional parameters.
+
+### Explanation of model choice, including limitations and benefits
+A Random Forest model was chosen for the model. We felt our features lent themselves very well to a decision tree model. Items like geopgraphy (lat, lon, height) and engineering information (water quality, waterpoint type, water source) would be great features for a decision tree to begin segmentting data. With a lot of categorical variables, a Random Forest can tend to make trees with sparse dataset, which can be a limitation. In our case, we had many rows and we felt the sparse trees lend themselves well to the numerous "engineering"-type features describing each of the waterpoints.
+
+We also tested a deep learning modeling, with 2 hidden layers. During preliminary testing, both the accuracy and computational time were worse than the Random Forest, so we chose to stick with Random Forest.
+
+We also tested a two stage logistic regression, where first stage would predict functioning versus everything else, and second stage would break down everything else into "needs repair" or "non-functioning". Unfortunately, the first stage yielded lower accuracy than Random Forest, so we chose not to pursue this model
+
+### Description of model performance
+The Random Forest had an accuracy of **80.8%** when identifying 3 output labels (functioning, needs repair, non-functioning). F1-score on the "needs repair label were the worst. This label is under represented in the overall dataset (<10% of total) and isn't linearly separable from the other two labels.
+
+We also ran the Random Forest on a binary classification by combining the "needs repair" and "non-functioning" into a single label. This model achieved **82.6%** accuracy, with strong precision and recall scores. Precision for "non-functioning" group was 85%, which is a strong score for identifying pumps in need of maintenance.
 
 ## Dashboard
 We are using Tableau for dashboarding. Also using Storyboard for Google slides.
