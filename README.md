@@ -26,7 +26,7 @@ Questions we hope to answer with the data:
 + Which features are most important in determining a pump needs repair?
 + Are pumps funded by certain funding organizations, installers, or management groups more likely to fail?
 
-#### Technologies we plan to use
+#### Technologies used/plan to use
 
 ## Data Cleaning and Analysis
 Python is used for initial data cleaning and analysis. Jupyter notebook is used to compose and run the codes. 
