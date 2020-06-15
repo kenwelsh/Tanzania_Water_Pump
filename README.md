@@ -69,7 +69,7 @@ The Random Forest had an accuracy of **80.8%** when identifying 3 output labels 
 We also ran the Random Forest on a binary classification by combining the "needs repair" and "non-functioning" into a single label. This model achieved **82.6%** accuracy, with strong precision and recall scores. Precision for "non-functioning" group was 85%, which is a strong score for identifying pumps in need of maintenance.
 
 ## Dashboard
-We are using Tableau for dashboarding. Also using Storyboard for Google slides.
+We are using Tableau for dashboarding. Also using Google slides for story board.
 
 
 ### Notes for Segment 1
