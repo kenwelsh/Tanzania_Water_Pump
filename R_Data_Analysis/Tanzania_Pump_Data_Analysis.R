@@ -123,6 +123,57 @@ summarize_waterpoint_type <- pump_data %>% group_by(waterpoint_type) %>% summari
   Needs_Repair_Percentage=sum(status_group_functional.needs.repair)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
   NonFunctional_Percentage=sum(status_group_non.functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional))) 
 
+
+# create quantity, region, source, waterpoint summary table
+summarize_quantity_with_additional <- pump_data %>% group_by(quantity, region, source, waterpoint_type) %>% summarize(
+  Functional=sum(status_group_functional), 
+  Functional_Needs_Repair=sum(status_group_functional.needs.repair), 
+  NonFunctional=sum(status_group_non.functional), 
+  Functional_Percentage=sum(status_group_functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
+  Needs_Repair_Percentage=sum(status_group_functional.needs.repair)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
+  NonFunctional_Percentage=sum(status_group_non.functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional))) 
+
+
+# create quantity, region summary table
+summarize_quantity_region <- pump_data %>% group_by(quantity, region) %>% summarize(
+  Functional=sum(status_group_functional), 
+  Functional_Needs_Repair=sum(status_group_functional.needs.repair), 
+  NonFunctional=sum(status_group_non.functional), 
+  Functional_Percentage=sum(status_group_functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
+  Needs_Repair_Percentage=sum(status_group_functional.needs.repair)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
+  NonFunctional_Percentage=sum(status_group_non.functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional))) 
+
+
+# create quantity, source summary table
+summarize_quantity_source <- pump_data %>% group_by(quantity, source) %>% summarize(
+  Functional=sum(status_group_functional), 
+  Functional_Needs_Repair=sum(status_group_functional.needs.repair), 
+  NonFunctional=sum(status_group_non.functional), 
+  Functional_Percentage=sum(status_group_functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
+  Needs_Repair_Percentage=sum(status_group_functional.needs.repair)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
+  NonFunctional_Percentage=sum(status_group_non.functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional))) 
+
+
+# create quantity, waterpoint summary table
+summarize_quantity_waterpoint <- pump_data %>% group_by(quantity, waterpoint_type) %>% summarize(
+  Functional=sum(status_group_functional), 
+  Functional_Needs_Repair=sum(status_group_functional.needs.repair), 
+  NonFunctional=sum(status_group_non.functional), 
+  Functional_Percentage=sum(status_group_functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
+  Needs_Repair_Percentage=sum(status_group_functional.needs.repair)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
+  NonFunctional_Percentage=sum(status_group_non.functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional))) 
+
+
+# create quantity, extraction_type summary table
+summarize_quantity_extraction_type <- pump_data %>% group_by(quantity, extraction_type) %>% summarize(
+  Functional=sum(status_group_functional), 
+  Functional_Needs_Repair=sum(status_group_functional.needs.repair), 
+  NonFunctional=sum(status_group_non.functional), 
+  Functional_Percentage=sum(status_group_functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
+  Needs_Repair_Percentage=sum(status_group_functional.needs.repair)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional)),
+  NonFunctional_Percentage=sum(status_group_non.functional)/(sum(status_group_functional)+sum(status_group_functional.needs.repair)+sum(status_group_non.functional))) 
+
+
 # Region chi-squared test
 tbl <- table(pump_data$region,pump_data$status_group) #generate contingency table
 chisq.test(tbl) #compare categorical distributions
@@ -144,13 +195,13 @@ chisq.test(tbl) #compare categorical distributions
 # Permit chi-squared test
 tbl <- table(pump_data$permit,pump_data$status_group) #generate contingency table
 chisq.test(tbl) #compare categorical distributions
-# significant difference in pump functional distribution between scheme management: p-value = 1.542e-15
+# significant difference in pump functional distribution between permit: p-value = 1.542e-15
 
 
 # Extration Type chi-squared test
 tbl <- table(pump_data$extraction_type,pump_data$status_group) #generate contingency table
 chisq.test(tbl) #compare categorical distributions
-# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
+# significant difference in pump functional distribution between extraction type: p-value = 2.2e-16
 
 
 # Management chi-squared test
@@ -162,25 +213,25 @@ chisq.test(tbl) #compare categorical distributions
 # Payment chi-squared test
 tbl <- table(pump_data$payment,pump_data$status_group) #generate contingency table
 chisq.test(tbl) #compare categorical distributions
-# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
+# significant difference in pump functional distribution between payment: p-value = 2.2e-16
 
 
 # Water Quality chi-squared test
 tbl <- table(pump_data$water_quality,pump_data$status_group) #generate contingency table
 chisq.test(tbl) #compare categorical distributions
-# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
+# significant difference in pump functional distribution between water quality: p-value = 2.2e-16
 
 
 # Quantity chi-squared test
 tbl <- table(pump_data$quantity,pump_data$status_group) #generate contingency table
 chisq.test(tbl) #compare categorical distributions
-# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
+# significant difference in pump functional distribution between quantity p-value = 2.2e-16
 
 
 # Source chi-squared test
 tbl <- table(pump_data$source,pump_data$status_group) #generate contingency table
 chisq.test(tbl) #compare categorical distributions
-# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
+# significant difference in pump functional distribution between source: p-value = 2.2e-16
 
 
 # Source Class chi-squared test
@@ -192,7 +243,6 @@ chisq.test(tbl) #compare categorical distributions
 # Waterpoint Type chi-squared test
 tbl <- table(pump_data$waterpoint_type,pump_data$status_group) #generate contingency table
 chisq.test(tbl) #compare categorical distributions
-# significant difference in pump functional distribution between scheme management: p-value = 2.2e-16
-
+# significant difference in pump functional distribution between waterpoint: p-value = 2.2e-16
 
 
