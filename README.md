@@ -63,10 +63,17 @@ We also tested a deep learning modeling, with 2 hidden layers. During preliminar
 
 We also tested a two stage logistic regression, where first stage would predict functioning versus everything else, and second stage would break down everything else into "needs repair" or "non-functioning". Unfortunately, the first stage yielded lower accuracy than Random Forest, so we chose not to pursue this model
 
+### Changes between Segment 2 and Segment 3
+As previously mentioned, there are 3 classes in the dataset, with one (needs repair) being under-represented. In addition to training and fitting a Random Forest, we also added an Under-sampling Random Forest using the imblearn Python library. This model performed overall similar, but its performance metric for classfying "needs repair" changed.
+
 ### Description of model performance
 The Random Forest had an accuracy of **80.8%** when identifying 3 output labels (functioning, needs repair, non-functioning). F1-score on the "needs repair label were the worst. This label is under represented in the overall dataset (<10% of total) and isn't linearly separable from the other two labels.
 
+The Under-sampled Random Forest had an accuracy of **80%** when identifying 3 output labels. See additional commentary on the under-sampling model below.
+
 We also ran the Random Forest on a binary classification by combining the "needs repair" and "non-functioning" into a single label. This model achieved **82.6%** accuracy, with strong precision and recall scores. Precision for "non-functioning" group was 85%, which is a strong score for identifying pumps in need of maintenance.
+
+Let's breakdown the precision and recall scores between the Random Forest, and Under-sampled Random Forest. The most interesting differences are in the "functional, needs repair" classifier. In the normal RAndom Forest, the precision score is **57%** and the sensitivity (recall) is **22%**, with an F1 score of 32%. This model prioritizes minimizing false positives, at the trade-off of not identifying even a quarter of the pumps in need of repair. Compare this to the undersampling Random Forest, the precision score is **25%** and the sensitivity is **73%**, with an F1 score of 37%. The undersampling switches the priority between precision and sensitivity. The model generates many more false positives, but we capture a greater number of the overall pumps that ACTUALLY need repair. This model leads well into the decision making for allocating resources or maintenance crews to ensure water is continually available.
 
 ## Dashboard
 We are using Tableau for dashboarding. Also using Google slides for story board.
