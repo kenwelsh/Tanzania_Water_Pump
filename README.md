@@ -71,9 +71,10 @@ Let's breakdown the precision and recall scores between the Random Forest, and U
 ## Dashboard
 We are using Tableau for dashboarding. Also using Google slides for story board.
 
-## Requirements
-
-https://github.com/kenwelsh/Tanzania_Water_Pump/blob/master/requirements.txt
+## Links
++ [Presentation](https://docs.google.com/presentation/d/1Tzutmtu-93NaoocKtD8GsclPh2si5CNKLqiVq4YbVKA/edit#slide=id.g8637fd1418_0_15)
++ [Dashboard](https://public.tableau.com/profile/allen5227#!/vizhome/Tanzania_Water_pump_map/Story1?publish=yes)
++ [Requirements](https://github.com/kenwelsh/Tanzania_Water_Pump/blob/master/requirements.txt)
 
 ### Notes for Segment 1
 + Notebook named **machinelearning_supervised_improvedcleaning.ipynb** is the most up to the base code for cleaning and machine learning. This notebook also demonstrates the connection string to our SQLite database.
